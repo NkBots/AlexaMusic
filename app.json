@@ -40,12 +40,12 @@
       },
       "MUSIC_BOT_NAME": {
         "description": "A name for your Music Bot. You can use special characters bot ko jhaat farak ni padega",
-        "value": "乛𝘼𝙇𝙀𝙓𝘼🕊⃝🦋⁪⁬",
+        "value": "⁪⁬",
         "required": true
       },
       "OWNER_ID": {
         "description": "The user id(s) of user(s) whom you would like to add as a OWNER. Multiple values shall be seperated with a space.",
-        "value": "5303133436",
+        "value": "",
         "required": true
       },
       "STRING_SESSION": {
@@ -80,7 +80,7 @@
       },
       "UPSTREAM_REPO": {
         "description": "If you dont know this, Leave as it is",
-        "value": "https://github.com/TheTeamAlexa/AlexaMusic",
+        "value": "https://github.com/Nkbots/AlexaMusic",
         "required": true
       },
       "UPSTREAM_BRANCH": {
