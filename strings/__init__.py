@@ -1,21 +1,23 @@
 #
-# Copyright (C) 2021-2022 by Alexa_Help@Github, < https://github.com/Jankarikiduniya >.
-# A Powerful Music Bot Property Of Rocks Indian Largest Chatting Group
-
-# Kanged By © @Dr_Asad_Ali
-# Rocks © @Shayri_Music_Lovers
-# Owner Asad Ali
-# Harshit Sharma
-# All rights reserved. © Alisha © Alexa © Yukki
-
+# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
+#
+# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
+# and is released under the "GNU v3.0 License Agreement".
+# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
+#
+# All rights reserved.
 
 import os
+import sys
 from typing import List
 
 import yaml
 
 languages = {}
 commands = {}
+
+
+languages_present = {}
 
 
 def get_command(value: str) -> List:
@@ -39,6 +41,7 @@ for filename in os.listdir(r"./strings/langs/"):
         languages["en"] = yaml.safe_load(
             open(r"./strings/langs/en.yml", encoding="utf8")
         )
+        languages_present["en"] = languages["en"]["name"]
     if filename.endswith(".yml"):
         language_name = filename[:-4]
         if language_name == "en":
@@ -49,3 +52,12 @@ for filename in os.listdir(r"./strings/langs/"):
         for item in languages["en"]:
             if item not in languages[language_name]:
                 languages[language_name][item] = languages["en"][item]
+    try:
+        languages_present[language_name] = languages[language_name][
+            "name"
+        ]
+    except:
+        print(
+            "There is some issue with the language file inside bot. Please report it to the TeamYukki at @YukkiSupport on Telegram"
+        )
+        sys.exit()
