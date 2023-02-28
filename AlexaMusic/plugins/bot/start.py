@@ -59,7 +59,7 @@ async def start_comm(client, message: Message, _):
             return await message.reply_text(_["song_2"])
         if name[0:3] == "sta":
             m = await message.reply_text(
-                "ɢᴇᴛᴛɪɴɢ ʏᴏᴜʀ ᴩᴇʀsᴏɴᴀʟ sᴛᴀᴛs ғʀᴏᴍ {config.MUSIC_BOT_NAME} sᴇʀᴠᴇʀ."
+                "Getting your Personal Stats {config.MUSIC_BOT_NAME} Server."
             )
             stats = await get_userss(message.from_user.id)
             tot = len(stats)
@@ -95,7 +95,7 @@ async def start_comm(client, message: Message, _):
                     details = stats.get(vidid)
                     title = (details["title"][:35]).title()
                     if vidid == "telegram":
-                        msg += f"🔗[ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/Shayri_Music_Lovers) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
+                        msg += f"🔗[Media](https://t.me/feelings_of_my_heart) ** Played {count} Times**\n\n"
                     else:
                         msg += f"🔗 [{title}](https://www.youtube.com/watch?v={vidid}) ** played {count} times**\n\n"
                 msg = _["ustats_2"].format(tot, tota, limit) + msg
@@ -127,7 +127,7 @@ async def start_comm(client, message: Message, _):
             if lyrics:
                 return await Telegram.send_split_text(message, lyrics)
             else:
-                return await message.reply_text("ғᴀɪʟᴇᴅ ᴛᴏ ɢᴇᴛ ʟʏʀɪᴄs.")
+                return await message.reply_text("Failed to get lyrics.")
         if name[0:3] == "del":
             await del_plist_msg(client=client, message=message, _=_)
         if name[0:3] == "inf":
@@ -145,23 +145,22 @@ async def start_comm(client, message: Message, _):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-**ᴛʀᴀᴄᴋ ɪɴғᴏʀɴᴀᴛɪᴏɴ**
+**Track Information**
 
-**ᴛɪᴛʟᴇ:** {title}
+**Title:** {title}
 
-**ᴅᴜʀᴀᴛɪᴏɴ:** {duration} ᴍɪɴᴜᴛᴇs
-**ᴠɪᴇᴡs:** `{views}`
-**ᴩᴜʙʟɪsʜᴇᴅ ᴏɴ:** {published}
-**ᴄʜᴀɴɴᴇʟ:** {channel}
-**ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ:** [ᴠɪsɪᴛ ᴄʜᴀɴɴᴇʟ]({channellink})
+**Duration:** {duration} ᴍɪɴᴜᴛᴇs
+**Views:** `{views}`
+**Published on:** {published}
+**Channel link:** {channel}
 **ʟɪɴᴋ:** [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})
 
  ᴩᴏᴡᴇʀᴇᴅ ʙʏ {config.MUSIC_BOT_NAME}"""
             key = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="• ʏᴏᴜᴛᴜʙᴇ •", url=f"{link}"),
-                        InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data="close"),
+                        InlineKeyboardButton(text="• YouTube •", url=f"{link}"),
+                        InlineKeyboardButton(text="• Close •", callback_data="close"),
                     ],
                 ]
             )
@@ -284,9 +283,9 @@ async def welcome(client, message: Message):
 @app.on_message(commandpro(["/alive", "Alexa"]) & ~filters.edited)
 async def start(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/125f531d44a9999290cac.jpg",
-        caption=f"""✪ ᴛʜᴀɴᴋs ᴛᴏ ʏᴜᴋᴋɪ ᴛᴇᴀᴍ""",
+        photo=f"https://telegra.ph/file/c8d9a07ab5ab91d99e241.jpg",
+        caption=f"""✪ Thanks to yukki Team""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("ᴄʜᴀᴛ", url=f"https://t.me/mithu1500")]]
+            [[InlineKeyboardButton("Chat", url=f"https://t.me/mithu1500")]]
         ),
     )
